@@ -19,12 +19,11 @@ export class FormsComponent {
 
   onSubmit() {
     const note: INote = {
+      _id: new Date().getTime(),
       title: this.title,
       description: this.description
     }
 
     this.notesList.push(note);
-
-    
   }
 }

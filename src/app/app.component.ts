@@ -13,6 +13,5 @@ import { INote } from './INote';
 })
 export class AppComponent {
   title = 'notes';
-
   public notesList: INote[] = [];
 }

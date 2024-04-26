@@ -1,1 +1,13 @@
-<p>list works!</p>
+<h1 *ngIf="notesList.length == 0">There are no notes yet!</h1>
+<ul *ngIf="notesList.length>0">
+    <li *ngFor="let note of notesList">
+        <div class="text">
+            <p>{{note.title}}</p>
+            <p>{{note.description}}</p>
+        </div>
+        <div class="actions">
+            <button (click)="delete(note._id)">Delete</button>
+            <button>Edit</button>
+        </div>
+    </li>
+</ul>
