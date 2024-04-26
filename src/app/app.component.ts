@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsComponent } from './forms/forms.component';
 import { ListComponent } from './list/list.component';
+import { INote } from './INote';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,6 @@ import { ListComponent } from './list/list.component';
 })
 export class AppComponent {
   title = 'notes';
+
+  public notesList: INote[] = [];
 }
