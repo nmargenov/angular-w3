@@ -13,5 +13,5 @@ import { INote } from './INote';
 })
 export class AppComponent {
   title = 'notes';
-  public notesList: INote[] = [];
+  public notesList: INote[] = [{_id:1,title:'test',description:'test',selected:true}];
 }

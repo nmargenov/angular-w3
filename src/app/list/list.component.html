@@ -1,13 +1,13 @@
 <h1 *ngIf="notesList.length == 0">There are no notes yet!</h1>
 <ul *ngIf="notesList.length>0">
-    <li *ngFor="let note of notesList">
+    <li [class.is-selected]="note.selected" (click)="toggleSelection($event, note)" *ngFor="let note of notesList">
         <div class="text">
             <p>{{note.title}}</p>
             <p>{{note.description}}</p>
         </div>
-        <div class="actions">
-            <button (click)="delete(note._id)">Delete</button>
-            <button>Edit</button>
+        <div *ngIf="note.selected" class="actions">
+            <button id="delete-btn" (click)="delete(note._id)">Delete</button>
+            <button id="edit-btn" (click)="edit()">Edit</button>
         </div>
     </li>
 </ul>

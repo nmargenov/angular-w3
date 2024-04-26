@@ -21,7 +21,8 @@ export class FormsComponent {
     const note: INote = {
       _id: new Date().getTime(),
       title: this.title,
-      description: this.description
+      description: this.description,
+      selected:false
     }
 
     this.notesList.push(note);
