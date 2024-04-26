@@ -1,0 +1,11 @@
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.line{
+    border: 2px solid rgb(113, 113, 113);
+    margin: 0 50px;
+}
