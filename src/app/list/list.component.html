@@ -7,7 +7,7 @@
         </div>
         <div *ngIf="note.selected" class="actions">
             <button id="delete-btn" (click)="delete(note._id)">Delete</button>
-            <button id="edit-btn" (click)="edit()">Edit</button>
+            <button id="edit-btn" (click)="edit(note._id)">Edit</button>
         </div>
     </li>
 </ul>

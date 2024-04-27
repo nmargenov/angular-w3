@@ -12,6 +12,17 @@ import { INote } from './INote';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'notes';
-  public notesList: INote[] = [{_id:1,title:'test',description:'test',selected:true}];
+  public notesList: INote[] = [];
+  title:String = '';
+  description:String = '';
+
+  updateTitle(newTitle: String) {
+    this.title = newTitle;
+    console.log(this.title)
+  }
+
+  updateDescription(newDescription: String) {
+    this.description = newDescription;
+    console.log(this.description)
+  }
 }

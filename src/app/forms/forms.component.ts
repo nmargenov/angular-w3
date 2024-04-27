@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { INote } from '../INote';
 
@@ -12,10 +12,23 @@ import { INote } from '../INote';
 })
 export class FormsComponent {
 
-  title:string = '';
-  description:string = '';
-
+  @Input() title!:String;
+  @Input() description!:String;
   @Input() notesList: INote[] = [];
+  
+
+  @Output() titleChange = new EventEmitter<String>();
+  @Output() descriptionChange = new EventEmitter<String>();
+
+  updateTitle(newTitle: String) {
+    this.title = newTitle;
+    this.titleChange.emit(newTitle);
+  }
+
+  updateDescription(newDescription: String) {
+    this.description = newDescription;
+    this.descriptionChange.emit(newDescription);
+  }
 
   onSubmit() {
     const note: INote = {
@@ -26,5 +39,8 @@ export class FormsComponent {
     }
 
     this.notesList.push(note);
+
+    this.updateTitle('');
+    this.updateDescription('');
   }
 }
