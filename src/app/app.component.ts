@@ -15,14 +15,17 @@ export class AppComponent {
   public notesList: INote[] = [];
   title:String = '';
   description:String = '';
+  idToEdit: number | undefined;
+
+  updateIdToEdit(id:number){
+    this.idToEdit=id;
+  }
 
   updateTitle(newTitle: String) {
     this.title = newTitle;
-    console.log(this.title)
   }
 
   updateDescription(newDescription: String) {
     this.description = newDescription;
-    console.log(this.description)
   }
 }

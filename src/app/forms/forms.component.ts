@@ -15,10 +15,12 @@ export class FormsComponent {
   @Input() title!:String;
   @Input() description!:String;
   @Input() notesList: INote[] = [];
+  @Input() idToEdit:number | undefined;
   
 
   @Output() titleChange = new EventEmitter<String>();
   @Output() descriptionChange = new EventEmitter<String>();
+  @Output() toEditIdChange = new EventEmitter<number>();
 
   updateTitle(newTitle: String) {
     this.title = newTitle;
@@ -31,14 +33,24 @@ export class FormsComponent {
   }
 
   onSubmit() {
-    const note: INote = {
-      _id: new Date().getTime(),
-      title: this.title,
-      description: this.description,
-      selected:false
-    }
 
-    this.notesList.push(note);
+    if(!this.idToEdit){
+      const note: INote = {
+        _id: new Date().getTime(),
+        title: this.title,
+        description: this.description,
+        selected:false
+      }
+      this.notesList.push(note);
+    }
+    else{
+      const index = this.notesList.findIndex(note => note._id === this.idToEdit);
+      if(this.notesList[index] !== undefined){
+        this.notesList[index].title = this.title;
+        this.notesList[index].description = this.description;
+      }
+      this.toEditIdChange.emit(undefined);
+    }
 
     this.updateTitle('');
     this.updateDescription('');

@@ -1,7 +1,7 @@
 <div class="main">
-    <app-forms [notesList]="notesList" (titleChange)="updateTitle($event)"
+    <app-forms [notesList]="notesList" (toEditIdChange)="updateIdToEdit($event)" [idToEdit]="idToEdit" (titleChange)="updateTitle($event)"
     (descriptionChange)="updateDescription($event)" [title]="title" [description]="description"/>
     <div class="line"></div>
     <app-list [notesList]="notesList" (titleChange)="updateTitle($event)"
-    (descriptionChange)="updateDescription($event)" [description]="description" [title]="title"/>
+    (descriptionChange)="updateDescription($event)" (toEditId)="updateIdToEdit($event)" [description]="description" [title]="title"/>
 </div>

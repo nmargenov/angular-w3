@@ -16,6 +16,7 @@ export class ListComponent {
 
   @Output() titleChange = new EventEmitter<String>();
   @Output() descriptionChange = new EventEmitter<String>();
+  @Output() toEditId = new EventEmitter<number>();
 
   updateTitle(newTitle: String) {
     this.title = newTitle;
@@ -36,6 +37,7 @@ export class ListComponent {
 
     this.updateTitle(note?.title!);
     this.updateDescription(note?.description!);
+    this.toEditId.emit(note?._id);
   }
   toggleSelection(event: MouseEvent, note: INote) {
     const target = event.target as HTMLElement;
